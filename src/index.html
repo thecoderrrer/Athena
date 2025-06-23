@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inspiration&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="background"></div>
+    <h1 id="hello-text">Hello, Gavin!</h1>
+
+    <div id="homepage-content" class="hidden">
+      <header id="homepage-header" class="neuo">
+        <h2 id="user-welcome">Hey there Gavin</h2>
+        <div class="menu-box neuo">
+          <div class="menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </header>
+      <main class="main">
+        <div class="subject-grid">
+          <div class="subject-box neuo hidden">
+            <img src="assets/icons/chemical.png" class="img-subject" />
+            <h1 class="subject-text">Chemistry Unit-2</h1>
+          </div>
+          <div class="subject-box neuo hidden">
+            <img src="assets/icons/atom.png" class="img-subject" />
+            <h1 class="subject-text">Physics Unit-2</h1>
+          </div>
+          <div class="subject-box neuo hidden">
+            <img src="assets/icons/function.png" class="img-subject" />
+            <h1 class="subject-text">Pure Maths Unit-2</h1>
+            <h2 class="subject-track-text"></h2>
+          </div>
+          <div class="subject-box neuo hiden">
+            <img src="assets/icons/caribbean.png" class="img-subject" />
+            <h1 class="subject-text">Carbbean Studies</h1>
+          </div>
+          <div class="subject-grid-ini"></div>
+        </div>
+        <div id="subject-popup" class="hidden">
+          <h2 id="subject-select">Select a Subject</h2>
+        
+          <div id="popup-grid"></div>
+          <button id="close-popup" class="neuo">Close</button>
+      </div>
+      </main>
+      <button id="add-subject-btn">+ Add Subject</button>
+    </div>
+
+    <script type="module" src="./main.js"></script>
+
+  </body>
+</html>

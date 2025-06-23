@@ -1,0 +1,414 @@
+/* Background and layout */
+:root {
+  --color: #30343f;
+}
+body {
+  font-family: Inspiration;
+  font-weight: 400;
+  font-style: normal;
+  background-color: var(--color);
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+#homepage-content {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+}
+
+#homepage-header {
+  display: flex;
+  position: static;
+  padding: 20px;
+  width: 90%;
+  height: 3rem;
+  border-radius: 28px;
+
+  justify-self: center;
+  margin: 20px;
+  background-color: var(--color);
+}
+
+.menu-btn {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-box {
+  width: 48px;
+  height: 48px;
+  background-color: var(--color);
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  position: absolute;
+  align-self: center;
+
+  border-radius: 15px;
+  margin-left: 10px;
+}
+
+.main {
+  display: flex;
+  padding-top: 20px;
+}
+.hidden {
+  display: none;
+}
+
+.subject-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 2rem;
+  column-gap: 2rem;
+  width: 80%;
+}
+.subject-box {
+  background-color: var(--color);
+  border-radius: 30px;
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+  width: 300px;
+  height: 130px;
+  position: relative;
+}
+.subject-grid-quick {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.subject-text {
+  font-family: sans-serif;
+  font-size: large;
+  text-align: right;
+  margin-top: 2%;
+  margin-left: 28%;
+  color: white;
+}
+
+.img-subject {
+  width: 65px;
+  height: 65px;
+  position: absolute;
+  top: 25px;
+  left: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.neuo {
+  box-shadow: -1px 1px 2px 0px rgba(77, 83, 101, 0.3) inset,
+    1px -1px 2px 0px rgba(19, 21, 25, 0.5) inset,
+    3px 3px 6px 0px rgba(19, 21, 25, 0.2),
+    -3px -3px 6px 0px rgba(19, 21, 25, 0.2),
+    3px -3px 6px 0px rgba(77, 83, 101, 0.9),
+    -3px 3px 8px 0px rgba(19, 21, 25, 0.9);
+}
+
+.neuo-press {
+  box-shadow: -1px 1px 2px 0px rgba(77, 83, 101, 0.3),
+    1px -1px 2px 0px rgba(19, 21, 25, 0.5),
+    3px 3px 6px 0px rgba(19, 21, 25, 0.2) inset,
+    -3px -3px 6px 0px rgba(19, 21, 25, 0.2) inset,
+    3px -3px 6px 0px rgba(77, 83, 101, 0.9) inset,
+    -3px 3px 8px 0px rgba(19, 21, 25, 0.9) inset;
+}
+
+#subject-popup {
+  position: absolute;
+  justify-content: center;
+
+  margin-left: 70px;
+
+  width: 86%;
+  height: 300px;
+  background-color: #40444f;
+  border-radius: 20px;
+}
+
+#subject-select {
+  font-family: sans-serif;
+  font-size: small;
+  position: relative;
+
+  justify-self: center;
+
+  background-color: #30343f;
+  border-radius: 5px;
+  width: 16%;
+  color: #8c00ff;
+}
+
+#close-popup {
+  position: relative;
+  border-radius: 10px;
+  margin-top: 2rem;
+  background-color: var(--color);
+  border-width: 0cap;
+  color: #ccc;
+  padding: 5px;
+}
+
+#popup-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0px, 1fr)); /* Dynamic columns */
+  gap: 10px; /* Space between items */
+  padding: 10px;
+  background-color: #40444f;
+  align-content: center;
+  margin-top: 2rem;
+}
+
+.popup-grid-item {
+  display: flex;
+  width: auto;
+  height: 30px;
+
+  background-color: #00f;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-size: 15px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out;
+  font-family: sans-serif;
+}
+
+.popup-grid-item:hover {
+  transform: scale(1.05); /* Adds a hover effect */
+}
+
+.active-subject {
+  background-color: green !important; /* ✅ Turns green when active */
+  color: white; /* ✅ Adjust text for visibility */
+  font-weight: bold;
+}
+
+/* Styled "Hello, World!" text */
+#hello-text {
+  font-family: Inspiration;
+  align-self: center;
+  font-style: normal;
+  font-size: 140px;
+  font-weight: 400;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(90deg, #f0c, #8c00ff, #00f);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeSequence 8s ease-in-out forwards;
+}
+#user-welcome {
+  font-family: Inspiration;
+  font-style: normal;
+  font-size: 40px;
+  font-weight: 400;
+  position: relative;
+  left: 50%;
+  background: linear-gradient(90deg, #f0c, #8c00ff, #00f);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: none;
+}
+
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, #f0c 0%, #8c00ff 50%, #00f 100%);
+  opacity: 0; /* Start invisible */
+  animation: backgroundGlow 10s ease-in-out forwards; /* Apply smooth glow */
+}
+
+.menu-btn span {
+  width: 28px;
+  height: 4px;
+  background: white;
+  position: absolute;
+  transition: all 0.4s ease-in-out;
+  border-radius: 30px;
+  align-items: center;
+  justify-items: center;
+  align-self: center;
+}
+
+/* Position lines */
+.menu-btn span:nth-child(1) {
+  top: 0;
+}
+.menu-btn span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.menu-btn span:nth-child(3) {
+  bottom: 0;
+}
+
+/* When "not-active", reset rotation */
+.menu-btn.not-active span:nth-child(1) {
+  animation: rotateBack 1s ease forwards;
+}
+
+.menu-btn.not-active span:nth-child(3) {
+  animation: rotateBack2 1s ease forwards;
+}
+
+/* When active */
+.menu-btn.active span:nth-child(1) {
+  animation-delay: 60ms;
+  animation: menuspin 1s ease forwards;
+  transform-origin: center;
+}
+
+.menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.active span:nth-child(3) {
+  animation-delay: 60ms;
+  animation: menuspin2 1s ease forwards;
+  transform-origin: center;
+}
+
+/* Smooth fade-in animation */
+@keyframes fadeSequence {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes backgroundGlow {
+  0% {
+    opacity: 0;
+    box-shadow: 0 0 0px rgba(240, 0, 204, 0.3);
+  }
+  30% {
+    opacity: 0.3;
+    box-shadow: 0 0 40px rgba(140, 0, 255, 0.6);
+  }
+  60% {
+    opacity: 0.6;
+    box-shadow: 0 0 80px rgba(0, 0, 255, 0.8);
+  }
+  90% {
+    opacity: 1;
+    box-shadow: 0 0 120px rgba(240, 0, 204, 1);
+  }
+  95% {
+    opacity: 0.8;
+    box-shadow: 0 0 120px rgba(240, 0, 204, 1);
+  }
+  96% {
+    opacity: 0.6;
+    box-shadow: 0 0 120px rgba(240, 0, 204, 1);
+  }
+  98% {
+    opacity: 0.4;
+    box-shadow: 0 0 120px rgba(240, 0, 204, 1);
+  }
+  100% {
+    opacity: 0;
+    box-shadow: 0 0 120px rgba(240, 0, 204, 1);
+  }
+}
+
+/*keyframes for menu button*/
+
+@keyframes menuspin {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  10% {
+    transform: translateY(3px) rotate(0deg);
+  }
+  20% {
+    transform: translateY(6px) rotate(0deg);
+  }
+  30% {
+    transform: translateY(8px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(8px) rotate(45deg);
+  }
+}
+
+@keyframes menuspin2 {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  10% {
+    transform: translateY(-3px) rotate(0deg);
+  }
+  20% {
+    transform: translateY(-6px) rotate(0deg);
+  }
+  30% {
+    transform: translateY(-8px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+@keyframes rotateBack {
+  0% {
+    transform: translateY(8px) rotate(45deg);
+  }
+  70% {
+    transform: translateY(8px) rotate(0deg);
+  }
+  80% {
+    transform: translateY(6px) rotate(0deg);
+  }
+  90% {
+    transform: translateY(3px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes rotateBack2 {
+  0% {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  70% {
+    transform: translateY(-8px) rotate(0deg);
+  }
+  80% {
+    transform: translateY(-6px) rotate(0deg);
+  }
+  90% {
+    transform: translateY(-3px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
