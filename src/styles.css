@@ -177,7 +177,7 @@ body {
   width: auto;
   height: 30px;
 
-  background-color: #00f;
+  background-color: rgb(237, 41, 41);
   border: 2px solid #ccc;
   border-radius: 10px;
   font-size: 15px;
