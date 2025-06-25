@@ -5,7 +5,7 @@ window.onload = function () {
     }, 500); // Slight delay ensures it applies after page load
 
     // Fade out text and reveal homepage
-    setTimeout(() => {
+   // setTimeout(() => {
         document.getElementById("hello-text").style.display = "none";
 
         // Show homepage content
@@ -16,7 +16,7 @@ window.onload = function () {
             content.style.opacity = "1";
             content.style.transform = "translateY(0)";
         }, 500);
-    }, 11000); // Matches background fade timing
+   // }, 11000); // Matches background fade timing
 };
 
 document.querySelector(".menu-btn").addEventListener("click", function() {

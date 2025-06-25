@@ -130,7 +130,7 @@ body {
 #subject-popup {
   position: absolute;
   justify-content: center;
-
+  z-index: 1000;
   margin-left: 70px;
 
   width: 86%;
@@ -236,6 +236,20 @@ body {
   background: radial-gradient(circle, #f0c 0%, #8c00ff 50%, #00f 100%);
   opacity: 0; /* Start invisible */
   animation: backgroundGlow 10s ease-in-out forwards; /* Apply smooth glow */
+}
+
+#add-subject-btn {
+  background-color: var(--color);
+  border-radius: 15px;
+  border-width: 0px;
+  padding: 10px;
+  align-content: center;
+  justify-content: center;
+  color:#ccc;
+  position: relative;
+  margin-top: 50px;
+  margin-bottom: 20px;
+
 }
 
 .menu-btn span {
