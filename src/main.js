@@ -1,40 +1,40 @@
 window.onload = function () {
-    // Fade in the background
-    setTimeout(() => {
-      document.getElementById("background").style.opacity = "1";
-    }, 500); // Slight delay ensures it applies after page load
+  // Fade in the background
+  setTimeout(() => {
+    document.getElementById("background").style.opacity = "1";
+  }, 500); // Slight delay ensures it applies after page load
 
-    // Fade out text and reveal homepage
-   // setTimeout(() => {
-        document.getElementById("hello-text").style.display = "none";
+  // Fade out text and reveal homepage
+  // setTimeout(() => {
+  document.getElementById("hello-text").style.display = "none";
 
-        // Show homepage content
-        const content = document.getElementById("homepage-content");
-        content.classList.remove("hidden");
+  // Show homepage content
+  const content = document.getElementById("homepage-content");
+  content.classList.remove("hidden");
 
-        setTimeout(() => {
-            content.style.opacity = "1";
-            content.style.transform = "translateY(0)";
-        }, 500);
-   // }, 11000); // Matches background fade timing
+  setTimeout(() => {
+    content.style.opacity = "1";
+    content.style.transform = "translateY(0)";
+  }, 500);
+  // }, 11000); // Matches background fade timing
 };
 
-document.querySelector(".menu-btn").addEventListener("click", function() {
-    if (this.classList.contains("active")) {
-        this.classList.remove("active");
+document.querySelector(".menu-btn").addEventListener("click", function () {
+  if (this.classList.contains("active")) {
+    this.classList.remove("active");
 
-        // ✅ Force animation restart by triggering reflow
-        void this.offsetWidth;
+    // ✅ Force animation restart by triggering reflow
+    void this.offsetWidth;
 
-        this.classList.add("not-active");
-    } else {
-        this.classList.remove("not-active");
+    this.classList.add("not-active");
+  } else {
+    this.classList.remove("not-active");
 
-        // ✅ Ensure reverse animation is detected as a new cycle
-        void this.offsetWidth;
+    // ✅ Ensure reverse animation is detected as a new cycle
+    void this.offsetWidth;
 
-        this.classList.add("active");
-    }
+    this.classList.add("active");
+  }
 });
 
 document.getElementById("add-subject-btn").addEventListener("click", () => {
@@ -78,13 +78,19 @@ function populatePopupGrid() {
   });
 }
 
+document.querySelectorAll(".subject-box").forEach((box) => {
+  box.addEventListener("click", () => {
+    const subjectName = box.querySelector(".subject-text").textContent.trim();
+    console.log("Opening page for:", subjectName); // just for testing
+    window.location.href = "subject.html";
+  });
+});
 
 // Call this function every time the popup opens
 document.getElementById("add-subject-btn").addEventListener("click", () => {
   populatePopupGrid(); // ✅ Load subjects into the popup
   document.getElementById("subject-popup").classList.remove("hidden");
 });
-
 
 function updateSubjectGrid() {
   const subjectBoxes = document.querySelectorAll(".subject-box");
@@ -110,4 +116,3 @@ function updateSubjectGrid() {
 function saveSubjects(data) {
   localStorage.setItem("subjectsData", JSON.stringify(data)); // ✅ Save data in local storage
 }
-
